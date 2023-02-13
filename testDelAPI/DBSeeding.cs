@@ -1,12 +1,13 @@
 ﻿using testDelAPI.Data;
 using testDelAPI.Models;
 
-namespace PokemonReviewApp
+// cant run atm, just type in raw SQL
+namespace testDelAPI
 {
-    public class SeedingDB
+    public class DBSeeding
     {
         private readonly DataContext _dataContext;
-        public SeedingDB(DataContext context)
+        public DBSeeding(DataContext context)
         {
             this._dataContext = context;
         }
@@ -78,7 +79,7 @@ namespace PokemonReviewApp
                             }
                         }
                     },
-                                    new PokemonOwner()
+                    new PokemonOwner()
                     {
                         Pokemon = new Pokemon()
                         {

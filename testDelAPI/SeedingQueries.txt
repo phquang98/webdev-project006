@@ -1,0 +1,92 @@
+﻿USE zzzLearnDBDel;
+GO
+
+DECLARE @CateCount int;
+SELECT @CateCount = COUNT(*) FROM dbo.CategoryTable;
+IF NOT (@CateCount > 0)
+BEGIN
+	INSERT INTO dbo.CategoryTable
+	VALUES ('Electric'), ('Water'), ('Leaf') 
+END;
+
+--
+
+DECLARE @CountryCount int;
+SELECT @CountryCount = COUNT(*) FROM dbo.CountryTable;
+IF NOT (@CountryCount > 0)
+BEGIN
+	INSERT INTO dbo.CountryTable
+	VALUES ('Kanto'), ('Saffron City'), ('Millet Town') 
+END;
+
+--
+
+DECLARE @OwnerCount int;
+SELECT @OwnerCount = COUNT(*) FROM dbo.OwnerTable;
+IF NOT (@OwnerCount > 0)
+BEGIN
+	INSERT INTO dbo.OwnerTable
+	VALUES ('Jack', 'London', 1, 'Brooks Gym'),
+		   ('Harry', 'Potter', 2, 'Misty Gym'),
+		   ('Ash', 'Ketchum', 3, 'Ash Gym')
+END;
+
+DECLARE @PokeCount int;
+SELECT @PokeCount = COUNT(*) FROM dbo.PokemonTable;
+IF NOT (@PokeCount > 0)
+BEGIN
+	INSERT INTO dbo.PokemonTable
+	VALUES ('Pikachu', '2022-01-01'),
+		   ('Squirtle', '2022-01-02'),
+		   ('Venasuar', '2022-01-03')
+END;
+
+--
+
+DECLARE @PokeCateCount int;
+SELECT @PokeCateCount = COUNT(*) FROM dbo.PokemonCategoryTable;
+IF NOT (@PokeCateCount > 0)
+BEGIN
+	INSERT INTO dbo.PokemonCategoryTable
+	VALUES (3, 1), (4, 2), (5, 3)
+END;
+
+--
+
+DECLARE @PokeOwnerCount int;
+SELECT @PokeOwnerCount = COUNT(*) FROM dbo.PokemonOwnerTable;
+IF NOT (@PokeOwnerCount > 0)
+BEGIN
+	INSERT INTO dbo.PokemonOwnerTable
+	VALUES (3, 3), (4, 4), (5, 5)
+END;
+
+--
+
+DECLARE @ReviewerCount int;
+SELECT @ReviewerCount = COUNT(*) FROM dbo.ReviewerTable;
+IF NOT (@ReviewerCount > 0)
+BEGIN
+	INSERT INTO dbo.ReviewerTable
+	VALUES ('Teddy', 'Smith'),
+		   ('Taylor', 'Johnes'),
+		   ('Jessica', 'McGregor')
+END;
+
+--
+
+DECLARE @ReviewCount int;
+SELECT @ReviewCount = COUNT(*) FROM dbo.ReviewTable;
+IF NOT (@ReviewCount > 0)
+BEGIN
+	INSERT INTO dbo.ReviewTable
+	VALUES ('Pikachu Review', 'Pickahu is the best pokemon, because it is electric', 5, 1, 3),
+		   ('Pikachu Review', 'Pickachu is the best at killing rocks', 5, 2, 3),
+		   ('Pikachu Review', 'Useless', 1, 3, 3),
+		   ('Squirtle Review', 'squirtle is the best pokemon, because it is water', 4, 1, 4),
+		   ('Squirtle Review', 'Squirtle is the best a killing rocks', 3, 2, 4),
+		   ('Squirtle Review', 'Useless', 1, 3, 4),
+		   ('Venasuar Review', 'Venasuar  is the best a killing rocks', 1, 1, 5),
+		   ('Venasuar Review', 'Venasuar  is the best pokemon, because it is leaf', 1, 2, 5),
+		   ('Venasuar Review', 'Useless', 1, 3, 5)
+END;
