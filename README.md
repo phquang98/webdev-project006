@@ -1,7 +1,7 @@
 # testDelAPI
 
-Learn C# for backend.
-Tech used: Entity Framework (EF) Core, SQL Server
+Learn C# for backend.\
+Tech used: DOTNET 6, Entity Framework (EF) Core, SQL Server
 
 ## Resources
 
