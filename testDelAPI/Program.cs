@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 using testDelAPI;
 using testDelAPI.Data;
+using testDelAPI.Repositories;
 
 // tutorial https://www.youtube.com/watch?v=_8nLSsK5NDo&list=PL82C6-O4XrHdiS10BLh23x71ve9mQCln0
 
@@ -12,9 +13,10 @@ var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
 // var connStr = builder.Configuration.GetConnectionString("MoreSecureConn");
 
 
-// Add services to the container.
+// Add services to the container. (dep injection ??? add scope ???)
 builder.Services.AddControllers();
-builder.Services.AddTransient<DBSeeding>(); // dep injection ??? add scope ???
+builder.Services.AddTransient<DBSeeding>();
+builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(); // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddDbContext<DataContext>(options =>
