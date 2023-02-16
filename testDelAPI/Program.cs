@@ -17,6 +17,7 @@ var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddControllers();
 builder.Services.AddTransient<DBSeeding>();
 builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(); // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddDbContext<DataContext>(options =>
@@ -50,7 +51,10 @@ void seedData(IHost app)
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(opts =>
+    {
+        opts.DisplayOperationId(); // <https://stackoverflow.com/a/69368638/8834000>
+    });
 }
 app.UseHttpsRedirection();
 app.UseAuthorization();

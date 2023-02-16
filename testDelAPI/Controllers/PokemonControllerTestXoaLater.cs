@@ -10,11 +10,11 @@ using testDelAPI.Models;
 
 namespace testDelAPI.Controllers
 {
-    public class PokemonControllerTest : Controller
+    public class PokemonControllerTestXoaLater : Controller
     {
         private readonly DataContext _context;
 
-        public PokemonControllerTest(DataContext context)
+        public PokemonControllerTestXoaLater(DataContext context)
         {
             _context = context;
         }
